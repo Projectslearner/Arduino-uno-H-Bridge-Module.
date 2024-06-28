@@ -1,166 +1,69 @@
-# Motor Control Using H-Bridge Module and Potentiometer with Arduino UNO
+# Arduino Uno H-Bridge Module Control
 
 #### Project Overview
 
-This project demonstrates how to control the speed and direction of a DC motor using an H-Bridge module, a potentiometer, and a button with an Arduino UNO. The motor's speed is adjusted using the potentiometer, and the rotation direction is toggled using the button.
+This project demonstrates how to control two DC motors using an Arduino Uno and an H-Bridge module. The H-Bridge allows bi-directional control of the motors, enabling them to move forward and backward with varying speeds using PWM (Pulse Width Modulation).
 
 #### Components Needed
 
-1. **Arduino UNO Board**
-2. **H-Bridge Motor Driver Module (such as L298N)**
-3. **DC Motor**
-4. **Potentiometer**
-5. **Button**
-6. **Breadboard**
-7. **Jumper Wires**
+- **Arduino Uno**
+- **H-Bridge Module (L298N or similar)**
+- **Two DC Motors**
+- **Power Supply (for motors)**
+- **Jumper Wires**
 
-#### Block Diagram
+#### Block diagram
 
-![H-Bridge Motor Control Diagram](h_bridge_motor_control_diagram.png)
 
-#### Circuit Wiring
+#### Circuit Setup
 
-1. **H-Bridge Motor Driver:**
-   - Connect pin `enA` to digital pin 9 on the Arduino (PWM pin).
-   - Connect pin `in1` to digital pin 6 on the Arduino.
-   - Connect pin `in2` to digital pin 7 on the Arduino.
-   - Connect the motor terminals to the motor output pins of the H-Bridge module.
-   - Connect the H-Bridge module’s VCC and GND to an appropriate power source.
+1. **Connections to H-Bridge Module:**
 
-2. **Potentiometer:**
-   - Connect the middle pin of the potentiometer to the analog pin A0 on the Arduino.
-   - Connect the other two pins of the potentiometer to 5V and GND on the Arduino.
+   - **Motor A:**
+     - **in1Pin (H-Bridge):** Connected to Arduino pin 8
+     - **in2Pin (H-Bridge):** Connected to Arduino pin 9
+     - **enAPin (H-Bridge):** Connected to Arduino pin 6 (PWM for speed control)
 
-3. **Button:**
-   - Connect one pin of the button to digital pin 4 on the Arduino.
-   - Connect the other pin of the button to GND.
+   - **Motor B:**
+     - **in3Pin (H-Bridge):** Connected to Arduino pin 10
+     - **in4Pin (H-Bridge):** Connected to Arduino pin 11
+     - **enBPin (H-Bridge):** Connected to Arduino pin 5 (PWM for speed control)
+
+   - **Power Supply Connections:**
+     - Connect the Vcc and GND of the H-Bridge to an external power source suitable for your motors.
 
 #### Instructions
 
-1. **Set Up the Circuit:**
-   - Assemble the circuit according to the wiring instructions.
-   - Ensure all connections are secure and components are correctly placed on the breadboard.
+1. **Circuit Setup:**
+   - Connect the H-Bridge module and motors to the Arduino Uno as per the circuit setup section.
 
-2. **Upload the Code:**
-   - Copy and paste the provided code into the Arduino IDE.
-   - Verify and upload the code to your Arduino board.
+2. **Code Upload:**
+   - Open the Arduino IDE and create a new sketch.
+   - Copy and paste the provided Arduino code into the sketch.
 
-3. **Observe the Motor Control:**
-   - Turn the potentiometer to adjust the motor speed.
-   - Press the button to toggle the rotation direction of the motor.
-
-- **Pin Definitions:**
-  - `enA`, `in1`, and `in2` are defined for motor control.
-  - `button` is defined for the input button.
-
-- **Setup Function:**
-  - Initializes the motor control pins as outputs and the button pin as an input with an internal pull-up resistor.
-  - Sets the initial motor rotation direction.
-  - Begins serial communication at a baud rate of 9600.
-
-- **Loop Function:**
-  - Reads the potentiometer value and maps it to a PWM range of 0 to 255.
-  - Sends the PWM signal to control the motor speed via the H-Bridge's enable pin.
-  - Reads the button state to check for a press.
-  - Implements debouncing to avoid false triggers.
-  - Toggles the motor rotation direction and prints the current direction to the Serial Monitor for debugging.
+3. **Testing:**
+   - Upload the code to the Arduino Uno.
+   - Open the serial monitor with a baud rate of 9600 to monitor motor operations.
+   - The motors will alternate between moving forward, stopping, and moving backward as programmed.
 
 #### Applications
 
-- **Robotics:** Use this setup to control the speed and direction of motors in robotic applications.
-- **Automation Systems:** Implement in automated systems where variable motor control is required.
-- **Prototyping:** Useful for prototyping projects that require precise motor control.
+- **Robotics Projects:** Ideal for controlling movement in robotic platforms.
+- **Automation:** Use in projects requiring precise motor control for mechanical devices.
+- **Educational Purposes:** Learn about H-Bridge operation and motor control principles.
+
+#### Notes
+
+- Ensure all connections are secure and correct to prevent damage to the Arduino or motors.
+- Adjust PWM values in the code to control motor speed effectively based on your project requirements.
 
 ---
 
-## Made for you with ❣️ from ProjectsLearner
-
-🌐 [projectslearner.com](https://www.projectslearner.com)  
-📧 [projectslearner@gmail.com](mailto:projectslearner@gmail.com)  
-📸 [Instagram](https://www.instagram.com/projectslearner/)  
-📘 [Facebook](https://www.facebook.com/projectslearner)  
-▶️ [YouTube](https://www.youtube.com/@ProjectsLearner)  
-📘 [LinkedIn](https://www.linkedin.com/in/projectslearner)### Motor Control Using H-Bridge Module and Potentiometer with Arduino UNO
-
-#### Project Overview
-
-This project demonstrates how to control the speed and direction of a DC motor using an H-Bridge module, a potentiometer, and a button with an Arduino UNO. The motor's speed is adjusted using the potentiometer, and the rotation direction is toggled using the button.
-
-#### Components Needed
-
-1. **Arduino UNO Board**
-2. **H-Bridge Motor Driver Module (such as L298N)**
-3. **DC Motor**
-4. **Potentiometer**
-5. **Button**
-6. **Breadboard**
-7. **Jumper Wires**
-
-#### Block Diagram
-
-![H-Bridge Motor Control Diagram](h_bridge_motor_control_diagram.png)
-
-#### Circuit Wiring
-
-1. **H-Bridge Motor Driver:**
-   - Connect pin `enA` to digital pin 9 on the Arduino (PWM pin).
-   - Connect pin `in1` to digital pin 6 on the Arduino.
-   - Connect pin `in2` to digital pin 7 on the Arduino.
-   - Connect the motor terminals to the motor output pins of the H-Bridge module.
-   - Connect the H-Bridge module’s VCC and GND to an appropriate power source.
-
-2. **Potentiometer:**
-   - Connect the middle pin of the potentiometer to the analog pin A0 on the Arduino.
-   - Connect the other two pins of the potentiometer to 5V and GND on the Arduino.
-
-3. **Button:**
-   - Connect one pin of the button to digital pin 4 on the Arduino.
-   - Connect the other pin of the button to GND.
-
-#### Instructions
-
-1. **Set Up the Circuit:**
-   - Assemble the circuit according to the wiring instructions.
-   - Ensure all connections are secure and components are correctly placed on the breadboard.
-
-2. **Upload the Code:**
-   - Copy and paste the provided code into the Arduino IDE.
-   - Verify and upload the code to your Arduino board.
-
-3. **Observe the Motor Control:**
-   - Turn the potentiometer to adjust the motor speed.
-   - Press the button to toggle the rotation direction of the motor.
-
-
-- **Pin Definitions:**
-  - `enA`, `in1`, and `in2` are defined for motor control.
-  - `button` is defined for the input button.
-
-- **Setup Function:**
-  - Initializes the motor control pins as outputs and the button pin as an input with an internal pull-up resistor.
-  - Sets the initial motor rotation direction.
-  - Begins serial communication at a baud rate of 9600.
-
-- **Loop Function:**
-  - Reads the potentiometer value and maps it to a PWM range of 0 to 255.
-  - Sends the PWM signal to control the motor speed via the H-Bridge's enable pin.
-  - Reads the button state to check for a press.
-  - Implements debouncing to avoid false triggers.
-  - Toggles the motor rotation direction and prints the current direction to the Serial Monitor for debugging.
-
-#### Applications
-
-- **Robotics:** Use this setup to control the speed and direction of motors in robotic applications.
-- **Automation Systems:** Implement in automated systems where variable motor control is required.
-- **Prototyping:** Useful for prototyping projects that require precise motor control.
-
----
-
-## Made for you with ❣️ from ProjectsLearner
-
-🌐 [projectslearner.com](https://www.projectslearner.com)  
+🌐 [ProjectsLearner](https://projectslearner.com/learn/arduino-uno-h-bridge-module)  
 📧 [projectslearner@gmail.com](mailto:projectslearner@gmail.com)  
 📸 [Instagram](https://www.instagram.com/projectslearner/)  
 📘 [Facebook](https://www.facebook.com/projectslearner)  
 ▶️ [YouTube](https://www.youtube.com/@ProjectsLearner)  
 📘 [LinkedIn](https://www.linkedin.com/in/projectslearner)
+
+Crafted with ❤️ by ProjectsLearner
